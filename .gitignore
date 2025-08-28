@@ -1,0 +1,6 @@
+/Server/Server/obj
+/Server/Server/bin
+Server/Server/appsettings.Development.json
+Server/Server/appsettings.json
+/Server/Server/Properties
+/Server/.vs
