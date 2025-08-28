@@ -1,4 +1,6 @@
-﻿namespace Server.BL
+﻿using Server.DAL;
+
+namespace Server.BL
 {
     public class User
     {
@@ -18,6 +20,24 @@
         }
 
         public User() { }
+
+        public static int SignUp(User user)
+        {
+            Database db = new Database();
+            user.PasswordHash = Bcrypt.HashPassword(user.PasswordHash);
+            return db.InsertUser(user);
+        }
+
+        public static User? Login(String email, String password)
+        {
+            Database db = new Database();
+            User user = db.LoginUser(email);
+            if (user!=null && Bcrypt.VerifyPassword(password, user.PasswordHash))
+            {
+                return user;
+            }
+            return null;
+        }
 
     }
 }
