@@ -26,9 +26,9 @@ namespace Server.Controllers
 
         // GET api/<AuthController>/5
         [HttpPost("login")]
-        public IActionResult Login(String email, String password)
+        public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
-            User? user = Server.BL.User.Login(email, password);
+            User? user = Server.BL.User.Login(loginRequest.Email, loginRequest.Password);
             if (user != null)
             {
                 return Ok(user);

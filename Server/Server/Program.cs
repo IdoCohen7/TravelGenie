@@ -1,4 +1,4 @@
-using Server.BL;
+using Server.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseAuthorization();
 

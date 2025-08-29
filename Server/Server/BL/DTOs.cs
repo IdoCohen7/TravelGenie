@@ -34,4 +34,10 @@
         public string? Notes { get; set; }
         public decimal? EstCost { get; set; }
     }
+
+    public class LoginRequest
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
 }

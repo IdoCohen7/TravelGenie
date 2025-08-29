@@ -4,8 +4,9 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Linq;
 using Microsoft.Extensions.Options;
+using Server.BL;
 
-namespace Server.BL
+namespace Server.Services
 {
     public class GeminiService
     {

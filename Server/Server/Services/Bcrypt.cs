@@ -1,5 +1,4 @@
-﻿
-namespace Server.BL;
+﻿namespace Server.Services;
 
 public static class Bcrypt
 {

@@ -1,4 +1,4 @@
-﻿namespace Server.BL
+﻿namespace Server.Services
 {
     public class GeminiOptions
     {
