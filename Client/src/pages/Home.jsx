@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import {
   TextField,
@@ -35,6 +36,8 @@ export default function Home() {
     budgetTier: "medium",
     preferences: "",
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -76,6 +79,8 @@ export default function Home() {
 
     console.log("API Payload:", apiPayload);
     // TODO: Send apiPayload to your API endpoint
+
+    navigate("/trip", { state: { tripData: apiPayload } });
   };
 
   return (
