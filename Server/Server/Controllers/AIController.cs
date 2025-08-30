@@ -35,15 +35,13 @@ namespace Server.Controllers
         [HttpPost("pdf")]
         public IActionResult GeneratePdf([FromBody] TripPlan trip)
         {
-            // אופציונלי: אם יש לך מידע יעד/תאריכים מהבקשה המקורית
-            // תוכל להעביר לפונקציה כדי שיופיעו בכותרת
             byte[]? logo = System.IO.File.Exists("wwwroot/logo.png")
                 ? System.IO.File.ReadAllBytes("wwwroot/logo.png")
                 : null;
 
             var pdf = TripPdfBuilder.Build(
                 trip: trip,
-                destination: null, // אם יש לך – תשלח כאן
+                destination: null, 
                 startDate: null,
                 endDate: null,
                 logoPng: logo
