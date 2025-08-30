@@ -1,7 +1,7 @@
 ﻿namespace Server.BL
 {
     using System.Globalization;
-    using System.Linq;                     // חשוב ל-OrderBy וכו'
+    using System.Linq;                     
     using QuestPDF.Fluent;
     using QuestPDF.Helpers;
     using QuestPDF.Infrastructure;
