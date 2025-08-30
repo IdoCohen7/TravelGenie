@@ -31,5 +31,27 @@ namespace Server.Controllers
                 return StatusCode(502, new { error = "Gemini generation failed", detail = ex.Message });
             }
         }
+
+        [HttpPost("pdf")]
+        public IActionResult GeneratePdf([FromBody] TripPlan trip)
+        {
+            // אופציונלי: אם יש לך מידע יעד/תאריכים מהבקשה המקורית
+            // תוכל להעביר לפונקציה כדי שיופיעו בכותרת
+            byte[]? logo = System.IO.File.Exists("wwwroot/logo.png")
+                ? System.IO.File.ReadAllBytes("wwwroot/logo.png")
+                : null;
+
+            var pdf = TripPdfBuilder.Build(
+                trip: trip,
+                destination: null, // אם יש לך – תשלח כאן
+                startDate: null,
+                endDate: null,
+                logoPng: logo
+            );
+
+            var safeDest = "trip";
+            var fileName = $"{safeDest}-{DateTime.UtcNow:yyyyMMdd}.pdf";
+            return File(pdf, "application/pdf", fileName);
+        }
     }
 }

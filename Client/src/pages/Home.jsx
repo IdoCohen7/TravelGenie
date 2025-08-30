@@ -104,11 +104,17 @@ export default function Home() {
             component="img"
             src={logo}
             alt="TravelGenie Logo"
+            onClick={() => navigate("/")}
             sx={{
               width: 350,
               height: "auto",
               mb: 2,
               filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.2))",
+              cursor: "pointer",
+              transition: "transform 0.2s ease",
+              "&:hover": {
+                transform: "scale(1.03)",
+              },
             }}
           />
 

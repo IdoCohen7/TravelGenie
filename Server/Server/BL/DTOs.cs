@@ -40,4 +40,26 @@
         public string Email { get; set; }
         public string Password { get; set; }
     }
+
+    public record TripPlan(
+    string? currency,
+    decimal? totalEstCost,
+    List<TripDay>? days
+);
+
+    public record TripDay(
+        int? dayIndex,
+        string? summary,
+        List<TripItem>? items
+    );
+
+    public record TripItem(
+        string? startTime,
+        string? endTime,
+        string? title,
+        string? location,
+        string? notes,
+        decimal? estCost
+    );
+
 }

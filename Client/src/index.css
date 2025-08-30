@@ -1,8 +1,12 @@
-.home {
-  text-align: center;
-  padding-top: 20px;
+.logo {
+  height: 125px;
 }
 
-.logo {
-  height: 150px;
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
 }

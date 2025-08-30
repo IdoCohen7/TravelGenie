@@ -89,6 +89,7 @@ namespace Server.Services
             sb.AppendLine("You are a travel planner. Output STRICT JSON only, matching the schema. No prose.");
             sb.AppendLine($"Destination: {t.Destination}");
             sb.AppendLine($"Dates: {t.StartDate:yyyy-MM-dd} to {t.EndDate:yyyy-MM-dd}");
+            sb.AppendLine("The currency should always be only us dollars, if the user entered a destination value that isn't a known city or country - return an error");
             sb.AppendLine($"GroupType: {t.GroupType}");
             sb.AppendLine($"GroupSize: {t.Pax}");
             if (!string.IsNullOrWhiteSpace(t.BudgetTier))
